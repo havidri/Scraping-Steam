@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% block body %}
+
+  <div class="row mb-4">
+      {% for titles in titles %}
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-header">
+            <a href="{{ titles['href']|safe }}">
+              {{ titles.find('img')|safe }}
+            </a>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{{ titles['href']|safe }}">
+                {{ titles.find('div', attrs={'class': 'tab_item_name'}).text|safe }}
+              </a>
+                </h5>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+
